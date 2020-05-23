@@ -29,7 +29,6 @@ public class Grafo {
 			bf.readLine(); // arestas
 			String linha = bf.readLine();
 			int i = 1;
-
 			while (linha != null) {
 				String[] dados = linha.split(" ");
 
@@ -40,14 +39,12 @@ public class Grafo {
 				i = i + 1;
 				linha = bf.readLine();
 			}
-
 			bf.close();
-
-		} catch (IOException e) {
+		}catch (IOException e) {
 			e.getMessage();
 			e.printStackTrace();
 		}
-  }
+    }
 	
 	public static void gerar_dados_do_histograma(String saida) {
 		for(Map.Entry<String, Set<String>> entry : listaDeAdjacencia.entrySet()) {
@@ -69,8 +66,7 @@ public class Grafo {
 
 	private static void adicionar_aresta(String id1, String id2) {
 		Set<String> set = listaDeAdjacencia.get(id1);
-		if (set == null)
-			set = new HashSet<String>();
+		if (set == null) set = new HashSet<String>();
 		set.add(id2);
 		listaDeAdjacencia.put(id1, set);
 	}
@@ -91,5 +87,4 @@ public class Grafo {
 		}
 		return (quantidadeDeArestas / 2);
 	}
-
 }
